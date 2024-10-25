@@ -15,6 +15,7 @@ import PrivateRoute from './components/PrivateRoute';
 import ExamInstructions from './pages/student/exam/Instructions';
 import StudentReports from './pages/student/reports';
 import StudenExam from './pages/student/exam';
+import ExamStatus from './pages/student/exam/examStatus';
 
 function MainApp() {
 
@@ -28,9 +29,8 @@ function MainApp() {
 
         <Route path="/login" element={<Login />} />
         {/* <Route path="/register" element={<Register />} /> */}
-        
-        <Route path="/student/exam/write/:id" element={<WriteExam />} />
-        <Route path="/student/exam/instrections/:id" element={<ExamInstructions />} />
+
+
         {/* <Route path="/student/exam/instrections/:id" element={<ExamInstructions />} /> */}
 
         <Route
@@ -105,7 +105,27 @@ function MainApp() {
               <WriteExam />
             </PrivateRoute>
           } />
-
+        <Route
+          path="/student/exam/write/:id"
+          element={
+            <PrivateRoute adminRoute={false}>
+              <WriteExam />
+            </PrivateRoute>
+          } />
+        <Route
+          path="/student/exam/write/status/:id"
+          element={
+            <PrivateRoute adminRoute={false}>
+              <ExamStatus />
+            </PrivateRoute>
+          } />
+        <Route
+          path="/student/exam/instrections/:id"
+          element={
+            <PrivateRoute adminRoute={false}>
+              <ExamInstructions />
+            </PrivateRoute>
+          } />
       </Routes>
     </Router>
   )

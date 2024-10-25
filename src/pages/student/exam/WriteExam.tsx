@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import Calculator from "@/components/Calculator";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getQuestionsByExamId } from "@/api/QuestionData";
 import { getExamById } from "@/api/ExmaData";
 import { useToast } from "@/hooks/use-toast";
@@ -40,6 +40,7 @@ type Question = {
 };
 
 export default function WriteExam() {
+    const navigate = useNavigate(); // Get navigate function
     const { toast } = useToast();
     const { id: examId } = useParams<{ id: string }>();
     const [exam, setExam] = useState<Exam | null>(null);
@@ -229,6 +230,7 @@ export default function WriteExam() {
                 title: 'Exam submitted successfully!',
                 description: `we will notify on result section show. `,
             });
+            navigate(`/student/exam/write/status/${examId}`);
 
         } catch (error: any) {
             console.error('Error submitting exam:', error);

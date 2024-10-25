@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -63,10 +63,10 @@ export default function AdminReports() {
         }
     };
 
-    const handlePrintSelected = () => {
-        const selectedExamResults = examResults.filter((result) => selectedRows.includes(result.id));
-        console.log("Printing selected exam results:", selectedExamResults);
-    };
+    // const handlePrintSelected = () => {
+    //     const selectedExamResults = examResults.filter((result) => selectedRows.includes(result.id));
+    //     console.log("Printing selected exam results:", selectedExamResults);
+    // };
 
     const handleFilterChange = (field: keyof typeof filters, value: string) => {
         setFilters((prevFilters) => ({
@@ -98,9 +98,9 @@ export default function AdminReports() {
                             value={filters.exam}
                             onChange={(e) => handleFilterChange("exam", e.target.value)}
                         />
-                        <Button onClick={handlePrintSelected} disabled={selectedRows.length === 0}>
+                        {/* <Button onClick={handlePrintSelected} disabled={selectedRows.length === 0}>
                             Print Selected
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
                 <div className="bg-background rounded-lg shadow-lg p-6">
