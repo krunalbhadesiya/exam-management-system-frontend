@@ -11,7 +11,7 @@ export default function Home() {
                     <img src="/Logo.jpg" className="w-14 h-14 rounded-md" alt="Logo" />
                     <span className="sr-only">Exam System</span>
                 </Link>
-                <nav className="md:flex gap-4 sm:gap-6 hidden">
+                {/* <nav className="md:flex gap-4 sm:gap-6 hidden">
                     <Link to="" className="text-sm font-medium hover:underline underline-offset-4" >
                         Home
                     </Link>
@@ -27,7 +27,7 @@ export default function Home() {
                     <Link to="" className="text-sm font-medium hover:underline underline-offset-4" >
                         Contact
                     </Link>
-                </nav>
+                </nav> */}
                 <div className="flex gap-2">
 
                     <Link to="/login">
